@@ -1,0 +1,30 @@
+insert into meals values('getdate()');
+insert into meals values('getdate()');
+insert into calories
+values('7','98.4','12.6'); insert into
+calories values('13','138.4','46.6');
+insert into serving_size
+values('1','0.5','5','14');
+INSERT INTO serving_size VALUES ('2','1','10',
+'28');
+INSERT INTO user_account VALUES ('234','akshay',
+'akshay@example.com', '23','0987654721');
+INSERT INTO user_account VALUES ('393','Alice Johnson',
+'alicejohnson@example.com', '28', '9551234567');
+INSERT INTO workout
+values('12','running','getdate()','00:45:06');insert into
+workout values
+('4','swimming)','getdate()','00:03:36');
+insert into weight values('getdate()');
+insert into weight values('getdate()');
+show tables;
+select * from me al s ;
+select * from
+calories;select *
+from serving_size;
+select * from
+user_account;
+select * from
+workout;
+select * from
+weight; 
