@@ -1,0 +1,343 @@
+
+INDEX HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Train, Log, Repeat</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+<style>
+/* CSS for Report card */
+.card {
+margin-bottom: 20px; /* Adjust as needed */
+}
+
+.card img {
+height: 200px; /* Adjust image height */
+}
+
+.card-title {
+font-size: 1.5rem; /* Adjust title font size */
+font-weight: bold;
+}
+
+.card-text {
+font-size: 1rem; /* Adjust text font size */
+}
+
+.card-body {
+text-align: center; /* Center align text */
+}
+
+.btn-primary {
+margin-top: 10px; /* Adjust button margin */
+background-color: black; /* Change button background color */
+border-color: black; /* Change button border color */
+}
+
+.btn-primary:hover {
+background-color: #333; /* Change button background color on hover */
+border-color: #333; /* Change button border color on hover */
+}
+
+/* Table style */
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+th, td {
+border: 1px solid #ddd;
+padding: 8px;
+text-align: left;
+}
+
+th {
+background-color: #f2f2f2;
+}
+
+/* Full screen styles */
+.fullscreen {
+display: none;
+width: 100%;
+height: 100%;
+position: fixed;
+top: 0;
+left: 0;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 9999;
+overflow-y: auto;
+}
+
+.fullscreen-content {
+background-color: white;
+margin: 20px auto;
+padding: 20px;
+max-width: 800px;
+border-radius: 10px;
+}
+
+.close-btn {
+position: absolute;
+top: 20px;
+right: 20px;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div id="mainJumbotron" class="jumbotron">
+<div id="transparent_background">
+<h1 class="display-4">Train, Log, Repeat</h1>
+<p class="lead">What's the point of exercising, trying new meal plans, and workout <br> if you can't tell what is working for you and what isn't?</p>
+<hr class="my-4">
+<a class="btn btn-primary btn-lg" href="#moreInfo" role="button">Learn more</a>
+<a class="btn btn-primary btn-lg" href="signup.html" role="button">Sign up</a>
+</div>
+</div>
+
+<div id="moreInfo">
+<div class="card-deck">
+<div class="card">
+<img src="food.jpg" class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">Nutrition & Macros</h5>
+<p class="card-text">Log your meals throughout the day to see the nutrient breakdown, and to track your macros intake.</p>
+<a href="#" class="btn btn-primary" onclick="openNutritionFullScreen()">View Nutrition</a>
+</div>
+</div>
+<div class="card">
+<img src="weight.jpg" class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">Weight</h5>
+<p class="card-text">Log your weight so that you can see the direct relationship between progress toward your weight goals and both your food intake and workout patterns.</p>
+<a href="#" class="btn btn-primary" onclick="openWeightFullScreen()">View Weight</a>
+</div>
+</div>
+<div class="card">
+<img src="workout.jpg" class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">Workouts</h5>
+<p class="card-text">Log your workouts to help hold yourself accountable, and see the payoff!</p>
+<a href="#" class="btn btn-primary" onclick="openWorkoutsFullScreen()">View Workouts</a>
+</div>
+</div>
+
+<!-- Report card with updated styling and new image -->
+<div class="card">
+<img src="https://media.istockphoto.com/vectors/progress-arrow-vector-id499204995?k=6&m=499204995&s=170667a&w=0&h=_biZJrbjjCCss66FWXk9jul92JfDw9avpYtj9YptDlM=" class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">Report</h5>
+<p class="card-text">Check the results of your workouts and weight progress here.</p>
+<a href="#" class="btn btn-primary" onclick="openReportFullScreen()">View Report</a>
+</div>
+</div>
+
+<!-- User account card with collapsible table -->
+<div class="card">
+<img src="https://cdn.icon-icons.com/icons2/3054/PNG/512/account_profile_user_icon_190494.png" class="card-img-top" alt="User Account">
+<div class="card-body">
+<h5 class="card-title">User Account</h5>
+<button class="btn btn-primary" type="button" onclick="openFullScreen()">My Account</button>
+<div id="fullscreenTable" class="fullscreen">
+<div class="fullscreen-content">
+<h4>My Account</h4>
+<button class="close-btn" onclick="closeFullScreen()">Close</button>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Customer ID</th>
+<th>Name</th>
+<th>Email</th>
+<th>Age</th>
+<th>Phone Number 1</th>
+<th>Phone Number 2</th> <!-- New column for second phone number -->
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>John Doe</td>
+<td>johndoe@example.com</td>
+<td>30</td>
+<td>1234567890</td>
+<td>9876543210</td> <!-- Second phone number -->
+</tr>
+<!-- Add more rows as needed -->
+</tbody>
+
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nutritionDetails" class="fullscreen">
+<div class="fullscreen-content">
+<h4>Nutrition Details</h4>
+<button class="close-btn" onclick="closeNutritionFullScreen()">Close</button>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Meal</th>
+<th>Protein (g)</th>
+<th>Carbohydrate (g)</th>
+<th>Fat (g)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Breakfast</td>
+<td>20</td>
+<td>30</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Lunch</td>
+<td>25</td>
+<td>40</td>
+<td>15</td>
+</tr>
+<!-- Add more rows as needed -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="weightDetails" class="fullscreen">
+<div class="fullscreen-content">
+<h4>Weight Details</h4>
+<button class="close-btn" onclick="closeWeightFullScreen()">Close</button>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Weight (kg)</th>
+<th>Date & Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>70</td>
+<td>2024-05-02 08:00:00</td>
+</tr>
+<!-- Add more rows as needed -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="workoutDetails" class="fullscreen">
+<div class="fullscreen-content">
+<h4>Workout Details</h4>
+<button class="close-btn" onclick="closeWorkoutsFullScreen()">Close</button>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Intensity</th>
+<th>Type of Workout</th>
+<th>Date & Time</th>
+<th>Length of Workout</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>High</td>
+<td>Cardio</td>
+<td>2024-05-02 08:00:00</td>
+<td>1:30:00</td>
+<td>0:45:00</td>
+</tr>
+<!-- Add more rows as needed -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="reportDetails" class="fullscreen">
+<div class="fullscreen-content">
+<h4>Report Details</h4>
+<button class="close-btn" onclick="closeReportFullScreen()">Close</button>
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead>
+<tr>
+<th>Name</th>
+<th>Heart Rate</th>
+<th>Work Done</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>John Doe</td>
+<td>75</td>
+<td>Running</td>
+</tr>
+<!-- Add more rows as needed -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<script>
+function openFullScreen() {
+document.getElementById("fullscreenTable").style.display = "block";
+}
+
+function closeFullScreen() {
+document.getElementById("fullscreenTable").style.display = "none";
+}
+
+function openNutritionFullScreen() {
+document.getElementById("nutritionDetails").style.display = "block";
+}
+
+function closeNutritionFullScreen() {
+document.getElementById("nutritionDetails").style.display = "none";
+}
+
+function openWeightFullScreen() {
+document.getElementById("weightDetails").style.display = "block";
+}
+
+function closeWeightFullScreen() {
+document.getElementById("weightDetails").style.display = "none";
+}
+
+function openWorkoutsFullScreen() {
+document.getElementById("workoutDetails").style.display = "block";
+}
+
+function closeWorkoutsFullScreen() {
+document.getElementById("workoutDetails").style.display = "none";
+}
+
+function openReportFullScreen() {
+document.getElementById("reportDetails").style.display = "block";
+}
+
+function closeReportFullScreen() {
+document.getElementById("reportDetails").style.display = "none";
+}
+</script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
