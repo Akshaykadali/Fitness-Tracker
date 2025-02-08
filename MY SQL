@@ -1,0 +1,44 @@
+Create fitnessdb;
+
+ use fitnessdb; 
+
+#table 1;
+ use fitnessdb; 
+create tablemeal( 
+date_time datetime) ;
+
+
+#table 2; 
+create table calories(
+ protein float, 
+carbohydrate float, 
+fatfloat); 
+
+
+#table 3; 
+create table serving_size( 
+ounce float,
+ cup float,
+ teaspoon float,
+ gramfloat); 
+
+
+#table 4; 
+create table user_account(
+ customer_id int primary key,
+ c_name varchar(20),
+ email varchar(50), 
+age int, 
+ph_no bigint); 
+
+#table 5;
+create table workout(
+intensity int,
+type_of_workout varchar(20),
+date_time datetime,
+length_of_workout time,
+duration time);
+
+#table 6;
+create table weight(
+date_time datetime); 
