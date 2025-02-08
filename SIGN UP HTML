@@ -1,0 +1,125 @@
+SIGN UP HTML
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <style>
+        /* CSS for the form */
+        body {
+            background-image: linear-gradient(180deg, #32D9CB, #131F30);
+        }
+        .form_section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form_content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .form_image img {
+            width: 450px;
+        }
+        .form_content h4 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .form_content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .form_content form label {
+            font-size: 16px;
+        }
+        .form_content form input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn-primary {
+            background-color: black;
+            border-color: black;
+        }
+        .btn-primary:hover {
+            background-color: #333;
+            border-color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form_section">
+    <div class="form_image">
+        <img src="signup.jpg" alt="Signup Image">
+    </div>
+
+    <div class="form_content">
+        <h4>Create Account</h4>
+        <p>Start your fitness journey by entering your details below.</p>
+
+        <form id="signupForm">
+            <label for="customer_id">Customer ID</label><br>
+            <input type="number" id="customer_id" name="customer_id" required><br>
+
+            <label for="c_name">Name</label><br>
+            <input type="text" id="c_name" name="c_name" required><br>
+
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="age">Age</label><br>
+            <input type="number" id="age" name="age" required><br>
+
+            <label for="ph_no">Phone Number</label><br>
+            <input type="tel" id="ph_no" name="ph_no" required><br>
+
+            <button type="button" class="btn btn-primary btn-lg" onclick="submitForm()">Register</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function submitForm() {
+        var formData = {
+            customer_id: document.getElementById("customer_id").value,
+            c_name: document.getElementById("c_name").value,
+            email: document.getElementById("email").value,
+            age: document.getElementById("age").value,
+            ph_no: document.getElementById("ph_no").value
+        };
+
+        fetch("your_server_endpoint_here", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            alert("Registration successful!");
+        })
+        .catch(error => {
+            console.error("Error:", error);
+            alert("An error occurred. Please try again.");
+        });
+    }
+</script>
+
+</body>
+</html>
